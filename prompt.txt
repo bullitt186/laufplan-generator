@@ -1,0 +1,39 @@
+Create a python script:
+
+THe purpose of the script is to convert a training plan for running from csv or excel to an ical calendar file.
+Following, you find requirements which must be satisfied by the script.
+
+The script generates an iCal file based on the csv or excel file and the user input.
+The script reads a csv or excel file with the following columns: week (from 1 to max 100), day (from 1 to 7), training, details, heartrate (in percent), distance (in km)
+If called without arguments, the user shall be able to provide the input as arguments.
+When invoked, the script shall show the user a short explanation what the purpose of this script is and what the necessary arguments are.
+
+The script asks the user to enter his maximum heart rate (in bpm).
+The script asks the user to enter a start date (format: yyyy-mm-dd).
+If the start date is not a monday, make the start date the next monday after the provided date.
+Each line of the csv or excel file shall lead to one calendar entry.
+The calendar entries shall be created according to the following rules:
+The date of the calendar entry shall be calculated based on the date entered by the user + the week and day as an positive offset.
+Week = 1 means the first week of the training plan. Day 1 means monday, day 7 means sunday.
+The calendar entries shall be all day events. Make sure to use "DATE" in the iCal File instead of "dtstart" and"dtend".
+The calendar entries shall have the title of the column training.
+The calendar entry shall have the details of the column details.
+The details shall include the heartrate (in percentage).
+The details shall include the heartrate in bpm.
+This is calculated by multiplying the heartrate in percentage with the heartrate in bpm entered by the user.
+The details shall include the heartrate zone. 
+The heart rate zones shall be calculated based on this table:
+Zone	Intensity	Percentage of maximum heart rate
+Zone 1	Very light	50–60%
+Zone 2	Light	60–70%
+Zone 3	Moderate	70–80%
+Zone 4	Hard	80–90%
+Zone 5  Maximum 90-100%
+the details shall include the distance (in km) from the input file.
+each of the details stated above shall be separated by a line break.
+The finished iCal file shall be saved under a file name which includes the word “Laufplan” and the entered date.
+
+The script shall be internationalized.
+The script shall have a configurable option to provide a prefix for the titles of the calendar entries. By default, the prefix shall be "Running"
+
+Consider best practices in terms of input validation, robustness and maintainability. Document the source code. Each function shall have a description block.
